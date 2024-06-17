@@ -1,0 +1,22 @@
+/*Program to compute sin(x) using Taylor series*/
+#include<stdio.h>
+#include<math.h>
+#define PI 3.1426 //defining PI value as 3.1426
+main ( )
+{
+int i;
+float degree, x, term, sum;
+printf ("enter the degree\n");
+scanf ("%f", &degree);
+x = (degree * PI) / 180; // converting the degree into radian
+term = x; //initializing term as x
+sum = term;
+for (i = 3; i <= 15; i += 2)
+{
+term = (-term * x * x) / (i * (i - 1)); //calculating the value of each term
+sum = sum + term; // addition of terms
+}
+printf ("sin(%f)=%f\n", degree, sum);
+printf ("using library function\n");
+printf ("sin(%f)=%f\n", degree, sin (x)); //using sin( ) library function
+}
